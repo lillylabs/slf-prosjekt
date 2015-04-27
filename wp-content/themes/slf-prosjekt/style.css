@@ -117,8 +117,7 @@ ul, ol {
 .entry-summary a,
 .page-content a, 
 .comment-content a, 
-.pingback .comment-body > a,
-.widget_categories a {
+.pingback .comment-body > a {
   color: #D30013;
   border-color: #D30013;
 }
@@ -140,6 +139,26 @@ ol a:hover {
 /**
  * 11.0 - Widgets
  */
+ 
+.widget .widget-title a {
+  color: inherit;
+}
+
+.widget .widget-title a:hover {
+  color: #707070;
+}
+
+.widget_rss .rsswidget {
+  font-weight: normal;
+}
+
+.widget_rss .widget-title .rsswidget img {
+  display: none;
+}
+
+.widget_rss .widget-title .rsswidget {
+  font-weight: 700;
+}
 
 .widget .textwidget a img {
   background: white;
