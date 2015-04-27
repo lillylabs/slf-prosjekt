@@ -326,8 +326,14 @@ ol a:hover {
  *
  */
  
- @media screen and (min-width: 59.6875em) {
-   .page-header + div .hentry {
-     margin-top: 8.3333%;
-   } 
- }
+@media screen and (min-width: 38.75em) {
+ .page-header + div .hentry {
+   margin-top: 7.6923%%;
+ } 
+}
+
+@media screen and (min-width: 59.6875em) {
+  .page-header + div .hentry {
+    margin-top: 8.3333%;
+  } 
+}
