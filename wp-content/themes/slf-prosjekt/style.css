@@ -217,7 +217,7 @@ ol a:hover {
  */
  
 .siteorigin-panels .panel-grid {
-  margin: 0% -2.5% 8.3333% -2.5% !important;
+  margin: 0% -4% 8.3333% -4% !important;
 }
 
 .siteorigin-panels .panel-grid:last-child {
@@ -225,7 +225,7 @@ ol a:hover {
 }
 
 .siteorigin-panels .panel-grid-cell {
-  padding: 0 2.5%!important;
+  padding: 0 4%!important;
 }
 
 .siteorigin-panels .panel-grid .ow-button-base a {
@@ -252,11 +252,11 @@ ol a:hover {
 }
 
 .sow-features-list {
-  margin: 0 -5%!important;
+  margin: 0 -4%!important;
 }
 
 .sow-features-list .sow-features-feature {
-  padding: 0 5%!important;
+  padding: 0 4%!important;
 }
 
 .sow-features-list .sow-features-feature > a {
