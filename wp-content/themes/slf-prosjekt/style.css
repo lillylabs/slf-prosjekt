@@ -1,0 +1,293 @@
+/**
+ * Theme Name:  SLF Prosjekt
+ * Theme URI:   http://prosjekt.syklistene.no
+ * Description: Prosjekt theme for Syklistenes Landsforening
+ * Author:      Benedicte Raae
+ * Author URI:  https://lillylabs.no
+ * Template: 	  twentyfifteen
+ * Version:     1.0.0 
+ * Text Domain: slf-project
+ */
+ 
+#colophon {
+  display: none;
+}
+
+/**
+ * 3.0 Typography
+ */
+
+/* Sans serif in twentyfifteen */
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+  background: #D30013;
+  border-bottom: 2px solid #87000c;
+}
+
+button:hover, 
+input[type="button"]:hover, 
+input[type="reset"]:hover, 
+input[type="submit"]:hover {
+  background: #e70015;
+  border-bottom-color: transparent;
+}
+
+/* Serif in twentyfifteen */
+
+.gallery-caption,
+.wp-caption-text,
+.no-comments,
+.comment-notes,
+.comment-awaiting-moderation,
+.logged-in-as,
+.form-allowed-tags,
+.comment-form label,
+.comment-list .reply a,
+.comment-metadata,
+.pingback .edit-link,
+.comments-title,
+.comment-reply-title,
+.entry-caption,
+.page-links,
+.page-title,
+.entry-footer,
+.author-heading,
+.widget_rss .rss-date,
+.widget_rss cite,
+.widget_calendar caption,
+.widget-title,
+.site-description,
+.site-title,
+.image-navigation,
+.comment-navigation,
+.pagination,
+.post-navigation .post-title,
+.post-navigation .meta-nav,
+.post-password-form label,
+.main-navigation .menu-item-description,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+blockquote cite,
+blockquote small {
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+::-webkit-input-placeholder {
+	font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+:-moz-placeholder {
+	font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+::-moz-placeholder {
+	font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+:-ms-input-placeholder {
+	font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+/**
+ * 4.0 Elements
+ */
+ 
+ul, ol {
+  list-style: square inside;
+}
+
+/**
+ * 6.1 Links
+ */
+ 
+.entry-content a, 
+.entry-summary a,
+.page-content a, 
+.comment-content a, 
+.pingback .comment-body > a,
+.widget_categories a {
+  color: #D30013;
+  border-color: #D30013;
+}
+
+a:hover {
+	color: #707070;
+}
+
+ul a,
+ol a {
+  border-bottom: none!important;
+}
+
+ul a:hover,
+ol a:hover {
+  color: #707070;
+}
+
+/**
+ * 11.0 - Widgets
+ */
+
+.widget .textwidget a img {
+  background: white;
+}
+
+.widget .textwidget a:hover img {
+  opacity: 0.8;
+}
+
+.widget_calendar caption {
+  color: #333;
+}
+
+.widget_calendar tbody a {
+  background: #D30013;
+  border-bottom: none;
+}
+
+.widget_calendar tbody a:hover {
+  background: #e70015;
+}
+
+/**
+ * 12.1 Posts and pages
+ */
+
+.post-thumbnail {
+  position: relative;
+}
+
+.post-thumbnail .wp-post-image {
+  width: 100%;
+}
+
+.entry-footer .edit-link {
+  margin-top: 1em;
+  display: block;
+  text-align: right;
+}
+
+/**
+ * 15.1 Mobile Large 620px
+ */
+
+@media screen and (min-width: 38.75em) {
+  
+  .page-header {
+    border-color: #D30013;
+  }
+  
+}
+
+/**
+ * SiteOrigin panels
+ *
+ */
+ 
+.siteorigin-panels .panel-grid {
+  margin: 0% -2.5% 8.3333% -2.5% !important;
+}
+
+.siteorigin-panels .panel-grid:last-child {
+  margin-bottom: 0!important;
+}
+
+.siteorigin-panels .panel-grid-cell {
+  padding: 0 2.5%!important;
+}
+
+.siteorigin-panels .panel-grid .ow-button-base a {
+  background-color: #D30013!important;
+  border-bottom: 2px solid #87000c!important;
+}
+
+.siteorigin-panels .panel-grid .ow-button-base a:hover {
+  background-color: #e70015!important;
+  border-bottom-color: transparent!important;
+}
+ 
+.siteorigin-panels .panel-grid .widget {
+  padding: 0;
+  color: #333;
+}
+
+.siteorigin-panels .panel-grid .widget .widget-title {
+  text-transform: none;
+}
+
+.siteorigin-panels .panel-grid .widget_calendar {
+  color: #707070;
+}
+
+.sow-features-list {
+  margin: 0 -5%!important;
+}
+
+.sow-features-list .sow-features-feature {
+  padding: 0 5%!important;
+}
+
+.sow-features-list .sow-features-feature > a {
+  border: none;
+}
+
+.sow-features-list .sow-features-feature > a:hover .sow-icon-container {
+  color: #e70015!important;
+}
+
+.sow-features-list .sow-features-feature h5 {
+  text-transform: none;  
+}
+
+.sow-features-list .sow-features-feature h5 a {
+  border: none;
+}
+
+.sow-features-list .sow-features-feature h5 a:hover {
+  text-decoration: none!important;
+  border-bottom: 1px solid transparent;
+  border-color: inherit!important;
+}
+
+.sow-features-list .sow-features-feature p.sow-more-text a {
+  color: #D30013!important;
+  border: none;
+}
+
+.sow-features-list .sow-features-feature p.sow-more-text a:hover {
+  text-decoration: none!important;
+  color: #707070!important;
+}
+
+.sow-features-list .sow-features-feature p:last-child {
+  margin-top: 1em;
+}
+
+.so-widget-sow-cta h5,
+.so-widget-sow-cta h5 {
+  text-transform: none;
+}
+
+/**
+ * Project Page Template
+ *
+ */
+ 
+ @media screen and (min-width: 59.6875em) {
+   .page-header + div .hentry {
+     margin-top: 8.3333%;
+   } 
+ }
