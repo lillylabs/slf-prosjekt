@@ -101,6 +101,11 @@ input[type="submit"]:hover {
   border-bottom-color: transparent;
 }
 
+blockquote {
+  border-color: #D30013;
+  color: #D30013;
+}
+
 /**
  * 4.0 Elements
  */
