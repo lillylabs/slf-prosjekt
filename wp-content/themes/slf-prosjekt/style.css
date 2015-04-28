@@ -207,6 +207,12 @@ ol a:hover {
   background: #e70015;
 }
 
+.textwidget .contact-form input[type=email], 
+.textwidget .contact-form input[type=text], 
+.textwidget .contact-form textarea {
+  width: 100% !important;
+}
+
 /**
  * 12.1 Posts and pages
  */
@@ -287,6 +293,10 @@ ol a:hover {
 
 .sow-features-list .sow-features-feature > a {
   border: none;
+}
+
+.sow-features-list .sow-features-feature .sow-icon-container {
+  color: #D30013!important;
 }
 
 .sow-features-list .sow-features-feature > a:hover .sow-icon-container {
