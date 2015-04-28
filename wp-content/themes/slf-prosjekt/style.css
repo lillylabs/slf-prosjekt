@@ -323,6 +323,25 @@ ol a:hover {
 
 /**
  * Project Page Template
+ * and One Page Template
+ */
+
+.page-template-one-page.siteorigin-panels article.hentry,
+.page-template-project.siteorigin-panels article.hentry {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none;
+  background: transparent;
+}
+ 
+.page-template-one-page.siteorigin-panels article.hentry > .entry-content,
+.page-template-project.siteorigin-panels article.hentry > .entry-content {
+  padding: 0;
+}
+
+
+/**
+ * Project Page Template
  *
  */
  
@@ -336,4 +355,82 @@ ol a:hover {
   .page-header + div .hentry {
     margin-top: 8.3333%;
   } 
+}
+
+/**
+ * One Page Template
+ *
+ */
+
+.page-template-one-page .site-header,
+.page-template-one-page .site-content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.page-template-one-page .site-header {
+  background: none;
+  border: none;
+  padding: 7.6923% 0;
+  margin-bottom: -1%;
+}
+
+.page-template-one-page .site-branding {
+  padding: 0 !important;
+  text-align: center;
+  margin: 0 8.3333%;
+}
+
+.page-template-one-page .site-title,
+.page-template-one-page .site-title a {
+  color: #D30013;
+}
+
+.page-template-one-page .site-title {
+  font-size: 32px !important;
+  font-size: 3.2rem !important;
+  line-height: 1.25 !important;
+} 
+
+.page-template-one-page .site-description {
+  display: block !important;
+  font-size: 16px !important;
+  font-size: 1.6rem !important;
+}
+
+.page-template-one-page .site-main {
+  padding-top: 0;
+}
+
+@media screen and (min-width: 38.75em) {
+  .page-template-one-page .site-title {
+    font-size: 32px !important;
+    font-size: 3.2rem !important;
+    line-height: 1.25 !important;
+  } 
+  
+  .page-template-one-page .site-description {
+    font-size: 16px !important;
+    font-size: 1.6rem !important;
+  }
+}
+
+@media screen and (min-width: 59.6875em) {
+  .page-template-one-page .site-header {
+    padding: 6% 0;
+    margin-bottom: -1%;
+  } 
+}
+ 
+@media screen and (min-width: 59.6875em) {
+	.page-template-one-page:before {
+    content: none;
+	}
+
+	.page-template-one-page .site-content {
+		display: block;
+		float: none;
+	}
+	
 }
