@@ -1,6 +1,6 @@
 <?php
  /**
-  * Template Name: Project
+  * Template Name: Rows
   * @package SLF Project
   */
 

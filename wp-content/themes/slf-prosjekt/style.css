@@ -27,22 +27,6 @@ textarea {
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 }
 
-button, 
-input[type="button"], 
-input[type="reset"], 
-input[type="submit"] {
-  background: #D30013;
-  border-bottom: 2px solid #87000c;
-}
-
-button:hover, 
-input[type="button"]:hover, 
-input[type="reset"]:hover, 
-input[type="submit"]:hover {
-  background: #e70015;
-  border-bottom-color: transparent;
-}
-
 /* Serif in twentyfifteen */
 
 .gallery-caption,
@@ -99,6 +83,22 @@ blockquote small {
 
 :-ms-input-placeholder {
 	font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+  background: #D30013;
+  border-bottom: 2px solid #87000c;
+}
+
+button:hover, 
+input[type="button"]:hover, 
+input[type="reset"]:hover, 
+input[type="submit"]:hover {
+  background: #e70015;
+  border-bottom-color: transparent;
 }
 
 /**
@@ -322,12 +322,12 @@ ol a:hover {
 }
 
 /**
- * Project Page Template
+ * Rows Page Template
  * and One Page Template
  */
 
 .page-template-one-page.siteorigin-panels article.hentry,
-.page-template-project.siteorigin-panels article.hentry {
+.page-template-rows.siteorigin-panels article.hentry {
   margin: 0 !important;
   padding: 0 !important;
   box-shadow: none;
@@ -335,13 +335,13 @@ ol a:hover {
 }
  
 .page-template-one-page.siteorigin-panels article.hentry > .entry-content,
-.page-template-project.siteorigin-panels article.hentry > .entry-content {
+.page-template-rows.siteorigin-panels article.hentry > .entry-content {
   padding: 0;
 }
 
 
 /**
- * Project Page Template
+ * Rows Page Template
  *
  */
  
