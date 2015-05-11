@@ -62,7 +62,20 @@ add_filter( 'siteorigin_widgets_less_file_sow-button', 'slf_button_less_file', 1
  */
  
  function slf_features_template_file( $filename, $instance, $widget ){
-     return $filename = get_stylesheet_directory() . '/tpl/slf-features-base.php';
+   return $filename = get_stylesheet_directory() . '/tpl/slf-features-base.php';
  }
  add_filter( 'siteorigin_widgets_template_file_sow-features', 'slf_features_template_file', 10, 3 );
+ 
+/**
+* Style SiteOrigin features to match SLF
+*
+*/
+
+function slf_widgets_collection($folders){
+  $folders[] = get_stylesheet_directory() . '/widgets/';
+  return $folders;
+}
+add_filter('siteorigin_widgets_widget_folders', 'slf_widgets_collection');
+  
+
  
