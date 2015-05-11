@@ -57,7 +57,7 @@ function slf_button_less_file( $filename, $instance, $widget ){
 add_filter( 'siteorigin_widgets_less_file_sow-button', 'slf_button_less_file', 10, 3 );
 
 /**
- * Style SiteOrigin buttons to match SLF
+ * Style SiteOrigin features to match SLF
  *
  */
  
