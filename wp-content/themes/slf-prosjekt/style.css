@@ -259,16 +259,6 @@ ol a:hover {
 .siteorigin-panels .panel-grid-cell {
   padding: 0 4%!important;
 }
-
-.siteorigin-panels .panel-grid .ow-button-base a {
-  background-color: #D30013!important;
-  border-bottom: 2px solid #87000c!important;
-}
-
-.siteorigin-panels .panel-grid .ow-button-base a:hover {
-  background-color: #e70015!important;
-  border-bottom-color: transparent!important;
-}
  
 .siteorigin-panels .panel-grid .widget {
   padding: 0;

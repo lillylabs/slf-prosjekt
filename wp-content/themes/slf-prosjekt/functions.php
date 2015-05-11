@@ -28,3 +28,30 @@ function theme_add_after_row_html() {
 }
 add_action( 'siteorigin_panels_after_row', 'theme_add_after_row_html' );
 
+/**
+ * Style SiteOrigin buttons to match SLF
+ *
+ */
+ 
+function slf_modify_button_form( $form_options, $widget ){
+  // Lets add a new theme option
+  if( !empty($form_options['design']['fields']['theme']['options']) ) {
+    $form_options['design']['fields']['theme']['options'] = array(
+    	'flat' => __('Flat', 'siteorigin-widgets'),
+    	'wire' => __('Wire', 'siteorigin-widgets')
+    );    
+  }
+
+  return $form_options;
+}
+add_filter('siteorigin_widgets_form_options_sow-button', 'slf_modify_button_form', 10, 2);
+
+function slf_button_less_file( $filename, $instance, $widget ){
+  if( !empty($instance['design']['theme']) && $instance['design']['theme'] == 'flat' ) {
+    $filename = get_stylesheet_directory() . '/less/slf-button-flat.less'; 
+  } else if ( !empty($instance['design']['theme']) && $instance['design']['theme'] == 'wire' ) {
+    $filename = get_stylesheet_directory() . '/less/slf-button-wire.less';       
+  }
+  return $filename;
+}
+add_filter( 'siteorigin_widgets_less_file_sow-button', 'slf_button_less_file', 10, 3 );
