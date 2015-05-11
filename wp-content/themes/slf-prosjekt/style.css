@@ -259,16 +259,6 @@ ol a:hover {
 .siteorigin-panels .panel-grid-cell {
   padding: 0 4%!important;
 }
-
-.siteorigin-panels .panel-grid .ow-button-base a {
-  background-color: #D30013!important;
-  border-bottom: 2px solid #87000c!important;
-}
-
-.siteorigin-panels .panel-grid .ow-button-base a:hover {
-  background-color: #e70015!important;
-  border-bottom-color: transparent!important;
-}
  
 .siteorigin-panels .panel-grid .widget {
   padding: 0;
@@ -291,16 +281,8 @@ ol a:hover {
   padding: 0 4%!important;
 }
 
-.sow-features-list .sow-features-feature > a {
+.sow-features-list .sow-features-feature a {
   border: none;
-}
-
-.sow-features-list .sow-features-feature .sow-icon-container {
-  color: #D30013!important;
-}
-
-.sow-features-list .sow-features-feature > a:hover .sow-icon-container {
-  color: #e70015!important;
 }
 
 .sow-features-list .sow-features-feature h5 {
@@ -315,11 +297,6 @@ ol a:hover {
   text-decoration: none!important;
   border-bottom: 1px solid transparent;
   border-color: inherit!important;
-}
-
-.sow-features-list .sow-features-feature p.sow-more-text a {
-  color: #D30013!important;
-  border: none;
 }
 
 .sow-features-list .sow-features-feature p.sow-more-text a:hover {
