@@ -18,13 +18,9 @@ get_header(); ?>
     
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-    	<header class="page-header">
-    		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-    	</header><!-- .entry-header -->
+      <?php the_content(); ?>
     
-    	<?php the_content(); ?>
-    
-    	<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer hentry"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+      <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer hentry"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
     
     </article><!-- #post-## -->
         
