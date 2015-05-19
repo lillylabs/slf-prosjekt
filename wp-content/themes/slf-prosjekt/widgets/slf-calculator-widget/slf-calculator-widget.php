@@ -23,7 +23,7 @@ class SLF_Calculator_Widget extends SiteOrigin_Widget {
       // The $widget_options array, which is passed through to WP_Widget.
       // It has a couple of extras like the optional help URL, which should link to your sites help or support page.
       array(
-        'description' => __('A hello world widget.', 'slf-calculator-widget-text-domain'),
+        'description' => __('A SLF calculator widget.', 'slf-calculator-widget-text-domain'),
          // 'help'        => 'http://example.com/hello-world-widget-docs',
       ),
 
@@ -35,8 +35,8 @@ class SLF_Calculator_Widget extends SiteOrigin_Widget {
       array(
         'text' => array(
           'type' => 'text',
-          'label' => __('Hello world! goes here.', 'siteorigin-widgets'),
-          'default' => 'Hello world!'
+          'label' => __('Title', 'slf-calculator-widget-text-domain'),
+          'default' => 'SLF Calculator'
         ),
       ),
 
@@ -50,7 +50,7 @@ class SLF_Calculator_Widget extends SiteOrigin_Widget {
   }
 
   function get_style_name($instance) {
-      return '';
+      return 'slf-calculator-style';
   }
 }
 
