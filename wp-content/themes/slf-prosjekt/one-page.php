@@ -1,8 +1,8 @@
 <?php
- /**
-  * Template Name: One Page
-  * @package SLF Project
-  */
+/**
+ * Template Name: One Page
+ * @package SLF Project
+ */
   
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -21,7 +21,7 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
 
-  <header id="masthead" class="site-header" role="banner">
+ 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<?php
 				if ( is_front_page() || is_home() ) : ?>
@@ -36,53 +36,53 @@
 				<?php endif;
 			?>
 		</div><!-- .site-branding -->
-  </header><!-- .site-header -->
+ 	</header><!-- .site-header -->
 
 
 	<div id="content" class="site-content">
 
-  	<div id="primary" class="content-area">
-  		<main id="main" class="site-main" role="main">
-  
-  		<?php
-  		// Start the loop.
-  		while ( have_posts() ) : the_post();
-  
-  			// Include the page content template.
-      ?>
-      
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-      
-      <div class="entry-content">
-      	<?php the_content(); ?>
-      	<?php
-      		wp_link_pages( array(
-      			'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
-      			'after'       => '</div>',
-      			'link_before' => '<span>',
-      			'link_after'  => '</span>',
-      			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
-      			'separator'   => '<span class="screen-reader-text">, </span>',
-      		) );
-      	?>
-      </div><!-- .entry-content -->
-      
-      	<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer hentry"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
-      
-      </article><!-- #post-## -->
-          
-      <?php
-  
-  			// If comments are open or we have at least one comment, load up the comment template.
-  			if ( comments_open() || get_comments_number() ) :
-  				comments_template();
-  			endif;
-  
-  		// End the loop.
-  		endwhile;
-  		?>
-  
-  		</main><!-- .site-main -->
-  	</div><!-- .content-area -->
-  
-  <?php get_footer(); ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+ 
+		<?php
+		// Start the loop.
+		while ( have_posts() ) : the_post();
+ 
+ 		// Include the page content template.
+		?>
+
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+			<div class="entry-content">
+				<?php the_content(); ?>
+				<?php
+					wp_link_pages( array(
+						'before'		=> '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+						'after'			=> '</div>',
+						'link_before'	=> '<span>',
+						'link_after'	=> '</span>',
+						'pagelink'		=> '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+						'separator'		=> '<span class="screen-reader-text">, </span>',
+					) );
+				?>
+			</div><!-- .entry-content -->
+
+			<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer hentry"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+
+		</article><!-- #post-## -->
+			
+		<?php
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		// End the loop.
+		endwhile;
+		?>
+ 
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+	<?php get_footer(); ?>
