@@ -10,6 +10,11 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
+/**
+ * Style SiteOrigin rows to match theme
+ *
+ */
+
 function theme_add_before_row_html() {
   if (is_page_template('rows.php') || is_page_template('one-page.php')) {
     return '<div class="hentry"><div class="entry-content">';
