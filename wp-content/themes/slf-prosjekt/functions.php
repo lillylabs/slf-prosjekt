@@ -6,7 +6,7 @@
  */
 
 function theme_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -37,8 +37,8 @@ function slf_modify_button_form( $form_options, $widget ){
   // Lets add a new theme option
   if( !empty($form_options['design']['fields']['theme']['options']) ) {
     $form_options['design']['fields']['theme']['options'] = array(
-    	'flat' => __('Flat', 'siteorigin-widgets'),
-    	'wire' => __('Wire', 'siteorigin-widgets')
+      'flat' => __('Flat', 'siteorigin-widgets'),
+      'wire' => __('Wire', 'siteorigin-widgets')
     );    
   }
 
@@ -61,8 +61,8 @@ add_filter( 'siteorigin_widgets_less_file_sow-button', 'slf_button_less_file', 1
  *
  */
  
- function slf_features_template_file( $filename, $instance, $widget ){
-     return $filename = get_stylesheet_directory() . '/tpl/slf-features-base.php';
- }
- add_filter( 'siteorigin_widgets_template_file_sow-features', 'slf_features_template_file', 10, 3 );
+function slf_features_template_file( $filename, $instance, $widget ){
+  return $filename = get_stylesheet_directory() . '/tpl/slf-features-base.php';
+}
+add_filter( 'siteorigin_widgets_template_file_sow-features', 'slf_features_template_file', 10, 3 );
  
