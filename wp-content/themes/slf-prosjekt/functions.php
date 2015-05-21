@@ -15,6 +15,16 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
  *
  */
 
+function slf_custom_header_args($args) {
+  $args['width'] = 530;
+  $args['flex-width'] = true;
+  $args['height'] = 200;
+  $args['flex-height'] = true;
+  
+  return $args;
+}
+add_filter('twentyfifteen_custom_header_args', 'slf_custom_header_args', 10, 3);
+
 function twentyfifteen_header_style() {
 	$header_image = get_header_image();
 
@@ -66,24 +76,6 @@ function twentyfifteen_header_style() {
 				min-height: 0;
 			}
 		}
-	<?php
-		endif;
-
-		// Has a Custom Header been added?
-		if ( ! empty( $header_image ) ) :
-	?>
-		.site-branding {
-			background: url(<?php header_image(); ?>) no-repeat 50% 50%;
-            height: <?php echo get_custom_header()->height; ?>px;
-            max-height: 200px;
-            width: <?php echo get_custom_header()->width; ?>px;
-            max-width: 100%;
-            -webkit-background-size: contain;
-			-moz-background-size:    contain;
-			-o-background-size:      contain;
-			background-size:         contain;
-		}
-
 	<?php
 		endif;
 
