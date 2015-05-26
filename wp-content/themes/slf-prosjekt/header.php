@@ -29,7 +29,9 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 				<?php if( get_custom_header() ) : ?>
-					<img class="site-logo" src="<?php header_image(); ?>"></img>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img class="site-logo" src="<?php header_image(); ?>"></img>
+					</a>
 				<?php endif; ?>
 				<?php
 					if ( is_front_page() && is_home() ) : ?>
