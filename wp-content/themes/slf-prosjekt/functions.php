@@ -13,14 +13,6 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
-function theme_enqueue_scripts() {
-	wp_enqueue_script(
-		'angularjs',
-		get_stylesheet_directory_uri() . '/js/vendor/angular/angular.min.js'
-	);
-}
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
-
 /**
  * Override Twenty Fifteen custom header
  *
@@ -165,7 +157,7 @@ function slf_features_template_file( $filename, $instance, $widget ){
 add_filter( 'siteorigin_widgets_template_file_sow-features', 'slf_features_template_file', 10, 3 );
 
 /**
- * Style SiteOrigin features to match SLF
+ * Add widgets
  *
  */
 function slf_widgets_collection($folders){
@@ -173,3 +165,23 @@ function slf_widgets_collection($folders){
 	return $folders;
 }
 add_filter('siteorigin_widgets_widget_folders', 'slf_widgets_collection');
+
+function slf_calculator_enqueue_scripts() {
+	wp_enqueue_script(
+		'angularjs',
+		get_stylesheet_directory_uri() . '/js/vendor/angular/angular.min.js'
+	);
+
+	wp_enqueue_script(
+		'angularjs-locale-nb',
+		get_stylesheet_directory_uri() . '/js/vendor/angular/angular-locale_nb.js',
+		array( 'angularjs' )
+	);
+
+	wp_enqueue_script(
+		'slf-calculator-js',
+		get_stylesheet_directory_uri() . '/widgets/slf-calculator-widget/js/slf-calculator.js',
+		array( 'angularjs', 'angularjs-locale-nb' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'slf_calculator_enqueue_scripts' );
