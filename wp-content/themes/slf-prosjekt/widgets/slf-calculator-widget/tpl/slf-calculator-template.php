@@ -52,46 +52,55 @@ function format($number, $decimals) {
 
 		<form>
 			<div class="slf-calculator-question slf-calculator-question-distance">
-				<span>Avstand til jobben:</span>
-				<span>
+				<span>Avstand til jobben (km):</span>
+				<span class="spinner">
+					<button ng-click="decrease('distanceToWork')">-</button>
 					<input type="number"
 						   value="<?php echo $defaults["distanceToWork"] ?>"
-						   ng-model="input.distanceToWork" /> kilometer
+						   ng-model="input.distanceToWork" />
+					<button ng-click="increase('distanceToWork')">+</button>
 				</span>
 			</div>
 			<div class="slf-calculator-question slf-calculator-question-frequency">
 				<span>Hvor ofte vil du sykle?</span>
-				<span>
+				<span>Antall ganger i uken:</span>
+				<span class="spinner">
+					<button ng-click="decrease('daysPerWeek')">-</button>
 					<input type="number"
 						   value="<?php echo $defaults["daysPerWeek"] ?>"
-						   ng-model="input.daysPerWeek" /> ganger per uke
+						   ng-model="input.daysPerWeek" />
+					<button ng-click="increase('daysPerWeek')">+</button>
 				</span>
-				<span>
+				<span>Antall uker per år:</span>
+				<span class="spinner">
+					<button ng-click="decrease('weeksPerYear')">-</button>
 					<input type="number"
 						   value="<?php echo $defaults["weeksPerYear"] ?>"
-						   ng-model="input.weeksPerYear" /> uker per år
+						   ng-model="input.weeksPerYear" />
+					<button ng-click="increase('weeksPerYear')">+</button>
 				</span>
 			</div>
 			<div class="slf-calculator-question slf-calculator-question-car-type">
 				<span>Hvilken bil har du?</span>
 				<label>
-					<input type="radio" value="gasCar" checked="true" ng-model="input.carType" /> Bensin
+					<input type="radio" name="car" value="gasCar" checked="true" ng-model="input.carType" /> Bensin
 				</label>
 				<label>
-					<input type="radio" value="dieselCar" ng-model="input.carType" /> Diesel
+					<input type="radio" name="car" value="dieselCar" ng-model="input.carType" /> Diesel
 				</label>
 				<label>
-					<input type="radio" value="noCar" ng-model="input.carType" /> Ingen
+					<input type="radio" name="car" value="noCar" ng-model="input.carType" /> Ingen
 				</label>
 			</div>
 		</form>
 
 		<div class="slf-calculator-result">
+
 			<h5 ng-show="input.display === 'year'">Iløpet av et år vil du:</h5>
 			<h5 ng-show="input.display === 'week'" class="ng-hide">Iløpet av en uke vil du:</h5>
 			<h5 ng-show="input.display === 'day'" class="ng-hide">På en dag vil du:</h5>
 
-			<ul class="slf-calculator-result-content">
+			<ul>
 
 				<li class="slf-calculator-result-distance-coverd">
 					<span class="slf-calculator-key-word">Sykle</span>
@@ -116,25 +125,20 @@ function format($number, $decimals) {
 					</span>
 					<span class="slf-calculator-key-word">kalorier</span>.
 				</li>
+			</ul>
 
-				<li class="slf-calculator-saved-nok">
-					Spare <span class="slf-calculator-key-word">samfunnet</span>
-					<span class="slf-calculator-number" ng-bind="result.savedNOK() | number : 2">
-						<?php echo format($kmInAYear * $constants["savedNOKPerKm"], 2) ?>
-					</span>
-					kroner.
-				</li>
+			<h5>Du vil spare miljøet for:</h5>
+
+			<ul>
 
 				<li class="slf-calculator-reduced-co2">
-					<span class="slf-calculator-key-word">Redusere CO2</span> utslippet med
 					<span class="slf-calculator-number" ng-bind="result.reducedCO2Kg() | number : 2">
 						<?php echo format($kmInAYear * $constants["reducedCO2KgPerKm"]["gasCar"], 2) ?>
 					</span>
-					kg.
+					kg CO2.
 				</li>
 
 				<li class="slf-calculator-reduced-nox">
-					Spare <span class="slf-calculator-key-word">miljøet</span> for
 					<span class="slf-calculator-number" ng-bind="result.reducedNOXGram() | number : 2">
 						<?php echo format($kmInAYear * $constants["reducedNOXGramPerKm"]["gasCar"], 2) ?>
 					</span>
@@ -142,25 +146,30 @@ function format($number, $decimals) {
 				</li>
 
 				<li class="slf-calculator-reduced-nox">
-					Spare <span class="slf-calculator-key-word">miljøet</span> for
 					<span class="slf-calculator-number" ng-bind="result.reducedDustGram() | number : 2">
 						<?php echo format($kmInAYear * $constants["reducedDustGramPerKm"]["gasCar"], 2) ?>
 					</span>
 					gram svevestøv.
 				</li>
-
 			</ul>
+
+			<h5>I tillegg sparer samfunnet<br/>
+				<span class="slf-calculator-number" ng-bind="result.savedNOK() | number : 0">
+					<?php echo format($kmInAYear * $constants["savedNOKPerKm"], 0) ?>
+				</span>
+				kroner.
+			</h5>
 
 			<div class="slf-calculator-result-tabs">
 				Vis resultat for:
 				<label>
-					<input type="radio" value="year" checked="true" ng-model="input.display" /> et år
+					<input type="radio" name="display" value="year" checked="true" ng-model="input.display" /> et år
 				</label>
 				<label>
-					<input type="radio" value="week" ng-model="input.display" /> en uke
+					<input type="radio" name="display" value="week" ng-model="input.display" /> en uke
 				</label>
 				<label>
-					<input type="radio" value="day" ng-model="input.display" /> en dag
+					<input type="radio" name="display" value="day" ng-model="input.display" /> en dag
 				</label>
 			</div>
 

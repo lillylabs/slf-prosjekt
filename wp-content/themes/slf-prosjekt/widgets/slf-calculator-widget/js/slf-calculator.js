@@ -8,6 +8,14 @@ var app = angular.module('slfCalculator', [])
 			return $scope.result.distanceCovered() * multiplier;
 		};
 
+		$scope.increase = function(variable) {
+			$scope.input[variable] = $scope.input[variable] + 1;
+		}
+
+		$scope.decrease = function(variable) {
+			$scope.input[variable] = $scope.input[variable] - 1;
+		}
+
 		$scope.result = {
 			distanceCovered: function () {
 				var distanceCovered = Number($scope.input.distanceToWork, 10) * 2;

@@ -25,13 +25,32 @@
 
 	form {
 
-		input {
-			margin-right: 0.3em;
-		}
+		.spinner {
+			display: table;
+			margin-top: 0.2em;
+			margin-bottom: 0.5em;
 
-		input[type="number"] {
-			width: 50px;
-			text-align: right;
+			button {
+				width: 35px;
+				height: 35px;
+				display: block;
+				float: left;
+				padding: 0;
+			}
+
+			input[type="number"] {
+				width: 35px;
+				height: 35px;
+				text-align: center;
+				display: block;
+				float: left;
+			}
+
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
 		}
 
 		.slf-calculator-question {
@@ -45,18 +64,23 @@
 		span, label {
 			display: block;
 		}
+
+		input[type=radio] {
+			margin-right: 0.3em;
+		}
 	}
 
 	.slf-calculator-result {
 
+		margin-top: -1em;
+
 		h5 {
 			text-transform: none;
-			margin-top: 0;
-			margin-bottom: 1em;
+			margin: 1em 0;
 		}
 
 		.slf-calculator-key-word {
-			font-weight: bold;
+//			font-weight: bold;
 		}
 	}
 
