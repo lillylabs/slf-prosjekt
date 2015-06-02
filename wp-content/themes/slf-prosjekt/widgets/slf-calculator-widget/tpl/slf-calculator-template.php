@@ -34,10 +34,6 @@ $defaults = json_decode($defaultsJSON, true);
 $constants = $defaults["constants"];
 $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defaults["weeksPerYear"];
 
-function format($number, $decimals) {
-	return number_format ( $number, $decimals , "," , " " );
-}
-
 ?>
 
 <div class="slf-calculator"
@@ -50,7 +46,7 @@ function format($number, $decimals) {
 
 	<div class="slf-calculator-container">
 
-		<form>
+		<div class="slf-calculator-form">
 			<div class="slf-calculator-question slf-calculator-question-distance">
 				<span>Avstand til jobben (km):</span>
 				<span class="spinner">
@@ -92,7 +88,7 @@ function format($number, $decimals) {
 					<input type="radio" name="car" value="noCar" ng-model="input.carType" /> Ingen
 				</label>
 			</div>
-		</form>
+		</div>
 
 		<div class="slf-calculator-result">
 
@@ -105,7 +101,7 @@ function format($number, $decimals) {
 				<li class="slf-calculator-result-distance-coverd">
 					<span class="slf-calculator-key-word">Sykle</span>
 					<span class="slf-calculator-number" ng-bind="result.distanceCovered() | number : 0">
-						<?php echo format($kmInAYear, 0) ?>
+						<?php echo number_format ( $kmInAYear, 0 , "," , " " ) ?>
 					</span>
 					<span>kilometer</span>.
 				</li>
@@ -113,7 +109,7 @@ function format($number, $decimals) {
 				<li class="slf-calculator-result-minutes-exercised">
 					<span class="slf-calculator-key-word">Mosjonere</span>
 					<span class="slf-calculator-number" ng-bind="result.minutesExercised() | number : 0">
-						<?php echo format($kmInAYear * $constants["minutesExercisedPerKm"], 0) ?>
+						<?php echo number_format ( $kmInAYear * $constants["minutesExercisedPerKm"], 0 , "," , " " ) ?>
 					</span>
 					<span>minutter</span>.
 				</li>
@@ -121,7 +117,7 @@ function format($number, $decimals) {
 				<li class="slf-calculator-result-calories-burned">
 					<span>Forbrenne</span>
 					<span class="slf-calculator-number" ng-bind="result.caloriesBurned() | number : 0">
-						<?php echo format($kmInAYear * $constants["caloriesBurnedPerKm"], 0) ?>
+						<?php echo number_format ( $kmInAYear * $constants["caloriesBurnedPerKm"], 0 , "," , " " ) ?>
 					</span>
 					<span class="slf-calculator-key-word">kalorier</span>.
 				</li>
@@ -133,21 +129,21 @@ function format($number, $decimals) {
 
 				<li class="slf-calculator-reduced-co2">
 					<span class="slf-calculator-number" ng-bind="result.reducedCO2Kg() | number : 2">
-						<?php echo format($kmInAYear * $constants["reducedCO2KgPerKm"]["gasCar"], 2) ?>
+						<?php echo number_format ( $kmInAYear * $constants["reducedCO2KgPerKm"]["gasCar"], 2 , "," , " " ) ?>
 					</span>
 					kg CO2.
 				</li>
 
 				<li class="slf-calculator-reduced-nox">
 					<span class="slf-calculator-number" ng-bind="result.reducedNOXGram() | number : 2">
-						<?php echo format($kmInAYear * $constants["reducedNOXGramPerKm"]["gasCar"], 2) ?>
+						<?php echo number_format ( $kmInAYear * $constants["reducedNOXGramPerKm"]["gasCar"], 2 , "," , " " ) ?>
 					</span>
 					gram NOx.
 				</li>
 
 				<li class="slf-calculator-reduced-nox">
 					<span class="slf-calculator-number" ng-bind="result.reducedDustGram() | number : 2">
-						<?php echo format($kmInAYear * $constants["reducedDustGramPerKm"]["gasCar"], 2) ?>
+						<?php echo number_format ( $kmInAYear * $constants["reducedDustGramPerKm"]["gasCar"], 2 , "," , " " ) ?>
 					</span>
 					gram svevestøv.
 				</li>
@@ -155,7 +151,7 @@ function format($number, $decimals) {
 
 			<h5>I tillegg sparer samfunnet<br/>
 				<span class="slf-calculator-number" ng-bind="result.savedNOK() | number : 0">
-					<?php echo format($kmInAYear * $constants["savedNOKPerKm"], 0) ?>
+					<?php echo number_format ( $kmInAYear * $constants["savedNOKPerKm"], 0 , "," , " " ) ?>
 				</span>
 				kroner.
 			</h5>
