@@ -88,15 +88,7 @@ blockquote small {
 button, 
 input[type="button"], 
 input[type="reset"], 
-input[type="submit"] {
-	background: #D30013;
-	border-bottom: 2px solid #87000c;
-}
-
-button:hover, 
-input[type="button"]:hover, 
-input[type="reset"]:hover, 
-input[type="submit"]:hover,
+input[type="submit"],
 button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
@@ -105,6 +97,14 @@ button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus {
+	background: #D30013;
+	border-bottom: 2px solid #87000c;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
 	background: #e70015;
 	border-bottom-color: transparent;
 }
