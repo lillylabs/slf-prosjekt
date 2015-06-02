@@ -181,7 +181,8 @@ function slf_calculator_enqueue_scripts() {
 	wp_enqueue_script(
 		'slf-calculator-js',
 		get_stylesheet_directory_uri() . '/widgets/slf-calculator-widget/js/slf-calculator.js',
-		array( 'angularjs', 'angularjs-locale-nb' )
+		array( 'angularjs', 'angularjs-locale-nb' ),
+		uniqid()
 	);
 }
 add_action( 'wp_enqueue_scripts', 'slf_calculator_enqueue_scripts' );
