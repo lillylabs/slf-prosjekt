@@ -1,6 +1,6 @@
 /*global angular */
 
-var app = angular.module('slfCalculator', [])
+var app = angular.module('slfCalculatorWidget', [])
 	.controller('SLFCalculatorController', function ($scope) {
 		"use strict";
 
@@ -50,4 +50,6 @@ var app = angular.module('slfCalculator', [])
 			}
 		};
 	});
-angular.bootstrap(document, ['slfCalculator']);
+angular.element(document).ready(function() {
+	angular.bootstrap(document, ['slfCalculatorWidget']);
+});
