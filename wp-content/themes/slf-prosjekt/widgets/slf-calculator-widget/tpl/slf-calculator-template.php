@@ -51,7 +51,8 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<span>Avstand til jobben (km):</span>
 				<span class="spinner">
 					<button ng-click="decrease('distanceToWork')">-</button>
-					<input type="number"
+					<input type="text"
+						   pattern="[0-9]*"
 						   value="<?php echo $defaults["distanceToWork"] ?>"
 						   ng-model="input.distanceToWork" />
 					<button ng-click="increase('distanceToWork')">+</button>
@@ -62,7 +63,8 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<span>Antall ganger i uken:</span>
 				<span class="spinner">
 					<button ng-click="decrease('daysPerWeek')">-</button>
-					<input type="number"
+					<input type="text"
+						   pattern="[0-9]*"
 						   value="<?php echo $defaults["daysPerWeek"] ?>"
 						   ng-model="input.daysPerWeek" />
 					<button ng-click="increase('daysPerWeek')">+</button>
@@ -70,7 +72,8 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<span>Antall uker per år:</span>
 				<span class="spinner">
 					<button ng-click="decrease('weeksPerYear')">-</button>
-					<input type="number"
+					<input type="text"
+						   pattern="[0-9]*"
 						   value="<?php echo $defaults["weeksPerYear"] ?>"
 						   ng-model="input.weeksPerYear" />
 					<button ng-click="increase('weeksPerYear')">+</button>

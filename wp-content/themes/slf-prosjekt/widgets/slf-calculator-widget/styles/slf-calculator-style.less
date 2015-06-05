@@ -37,19 +37,14 @@
 				float: left;
 				padding: 0;
 			}
-
-			input[type="number"] {
-				width: 35px;
+			// Using text because type=number
+			// gives unwanted styling in many browsers.
+			input[type="text"] {
+				width: 45px;
 				height: 35px;
 				text-align: center;
 				display: block;
 				float: left;
-			}
-
-			input[type=number]::-webkit-inner-spin-button,
-			input[type=number]::-webkit-outer-spin-button {
-				-webkit-appearance: none;
-				margin: 0;
 			}
 		}
 
