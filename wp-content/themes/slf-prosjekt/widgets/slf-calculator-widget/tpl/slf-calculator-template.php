@@ -82,13 +82,16 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 			<div class="slf-calculator-question slf-calculator-question-car-type">
 				<span>Hvilken bil har du?</span>
 				<label>
-					<input type="radio" name="car" value="gasCar" checked="true" ng-model="input.carType" /> Bensin
+					<input type="radio" name="car" value="gasCar" checked="true" ng-model="input.carType" />
+					<span>Bensin</span>
 				</label>
 				<label>
-					<input type="radio" name="car" value="dieselCar" ng-model="input.carType" /> Diesel
+					<input type="radio" name="car" value="dieselCar" ng-model="input.carType" />
+					<span>Diesel</span>
 				</label>
 				<label>
-					<input type="radio" name="car" value="noCar" ng-model="input.carType" /> Ingen
+					<input type="radio" name="car" value="noCar" ng-model="input.carType" />
+					<span>Ingen</span>
 				</label>
 			</div>
 		</div>
@@ -162,13 +165,16 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 			<div class="slf-calculator-result-tabs">
 				Vis resultat for:
 				<label>
-					<input type="radio" name="display" value="year" checked="true" ng-model="input.display" /> et år
+					<input type="radio" name="display" value="year" checked="true" ng-model="input.display" />
+					<span>et år</span>
 				</label>
 				<label>
-					<input type="radio" name="display" value="week" ng-model="input.display" /> en uke
+					<input type="radio" name="display" value="week" ng-model="input.display" />
+					<span>en uke</span>
 				</label>
 				<label>
-					<input type="radio" name="display" value="day" ng-model="input.display" /> en dag
+					<input type="radio" name="display" value="day" ng-model="input.display" />
+					<span>en dag</span>
 				</label>
 			</div>
 
