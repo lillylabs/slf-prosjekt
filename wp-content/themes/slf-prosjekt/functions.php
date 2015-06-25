@@ -6,7 +6,10 @@
  */
 
 function theme_enqueue_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style(
+		'parent-style',
+		get_template_directory_uri() . '/style.css'
+	);
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -20,7 +23,7 @@ function slf_custom_header_args($args) {
 	$args['flex-width'] = true;
 	$args['height'] = 200;
 	$args['flex-height'] = true;
-	
+
 	return $args;
 }
 add_filter('twentyfifteen_custom_header_args', 'slf_custom_header_args', 10, 3);
@@ -93,63 +96,35 @@ function twentyfifteen_header_style() {
 }
 
 /**
- * Style SiteOrigin rows to match theme
+ * SLF Calculator
  *
  */
 
-function theme_add_before_row_html() {
-	if (is_page_template('rows.php') || is_page_template('one-page.php')) {
-		return '<div class="hentry"><div class="entry-content">';
-	} else {
-		return '';
-	}
-}
-add_action( 'siteorigin_panels_before_row', 'theme_add_before_row_html' );
+function slf_calculator_enqueue_scripts() {
+	wp_enqueue_script(
+		'angularjs',
+		get_stylesheet_directory_uri() . '/js/vendor/angular/angular.min.js'
+	);
 
-function theme_add_after_row_html() {
-	if (is_page_template('rows.php') || is_page_template('one-page.php')) {
-		return '</div></div>';
-	} else {
-		return '';
-	}
-}
-add_action( 'siteorigin_panels_after_row', 'theme_add_after_row_html' );
+	wp_enqueue_script(
+		'angularjs-locale-nb',
+		get_stylesheet_directory_uri() . '/js/vendor/angular/angular-locale_nb.js',
+		array( 'angularjs' )
+	);
 
-/**
- * Style SiteOrigin buttons to match SLF
- *
- */
- 
-function slf_modify_button_form( $form_options, $widget ){
-	// Lets add a new theme option
-	if( !empty($form_options['design']['fields']['theme']['options']) ) {
-		$form_options['design']['fields']['theme']['options'] = array(
-			'flat' => __('Flat', 'siteorigin-widgets'),
-			'wire' => __('Wire', 'siteorigin-widgets')
-		);		
-	}
-
-	return $form_options;
+	wp_enqueue_script(
+		'slf-calculator-js',
+		get_stylesheet_directory_uri() . '/js/slf-calculator.js',
+		array( 'angularjs', 'angularjs-locale-nb' )
+	);
 }
-add_filter('siteorigin_widgets_form_options_sow-button', 'slf_modify_button_form', 10, 2);
+add_action( 'wp_enqueue_scripts', 'slf_calculator_enqueue_scripts' );
 
-function slf_button_less_file( $filename, $instance, $widget ){
-	if( !empty($instance['design']['theme']) && $instance['design']['theme'] == 'flat' ) {
-		$filename = get_stylesheet_directory() . '/less/slf-button-flat.less'; 
-	} else if ( !empty($instance['design']['theme']) && $instance['design']['theme'] == 'wire' ) {
-		$filename = get_stylesheet_directory() . '/less/slf-button-wire.less';			 
-	}
-	return $filename;
-}
-add_filter( 'siteorigin_widgets_less_file_sow-button', 'slf_button_less_file', 10, 3 );
 
-/**
- * Style SiteOrigin features to match SLF
- *
- */
- 
-function slf_features_template_file( $filename, $instance, $widget ){
-	return $filename = get_stylesheet_directory() . '/tpl/slf-features-base.php';
+function slf_calculator_shortcode() {
+    ob_start();
+    get_template_part('slf-calculator');
+    return ob_get_clean();
 }
-add_filter( 'siteorigin_widgets_template_file_sow-features', 'slf_features_template_file', 10, 3 );
- 
+add_shortcode('slf-calculator', 'slf_calculator_shortcode');
+
