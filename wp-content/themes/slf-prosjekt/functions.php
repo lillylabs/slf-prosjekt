@@ -1,8 +1,9 @@
 <?php
 /**
- * @package SLF Project
  *
- * Add your custom functions here.
+ * @package WordPress
+ * @subpackage SLF_Project
+ *
  */
 
 function theme_enqueue_styles() {

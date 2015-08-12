@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * @package WordPress
+ * @subpackage SLF_Project
+ *
+ */
 
 $defaultsJSON = '
 	{
