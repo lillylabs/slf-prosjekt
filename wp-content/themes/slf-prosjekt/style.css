@@ -167,6 +167,10 @@ ol a:hover {
 	opacity: 0.8;
 }
 
+.site-branding .site-title {
+	margin-top: 0.5em;
+}
+
 /**
  * 11.0 - Widgets
  */
