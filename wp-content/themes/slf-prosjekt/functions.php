@@ -15,6 +15,44 @@ function theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 /**
+ * SLF network band with menu
+ *
+ */
+
+function slf_get_network_logo() {
+	return get_bloginfo('stylesheet_directory')."/gfx/chain.png";
+}
+
+function register_slf_menus() {
+	register_nav_menu( 'network-menu', __( 'Network Menu' ) );
+}
+add_action( 'init', 'register_slf_menus' );
+
+function slf_network_wp_nav_menu($args = '') {
+
+	if(has_nav_menu( $args['theme_location'] )) {
+		wp_nav_menu( $args );
+	} elseif ( is_multisite() ) {
+		switch_to_blog( SITE_ID_CURRENT_SITE );
+		wp_nav_menu( $args );
+		restore_current_blog();
+	} else {
+		// To trigger fallback_cb
+		wp_nav_menu( $args );
+	}
+}
+
+function slf_has_network_wp_nav_menu($location) {
+	if(has_nav_menu($location)) {
+		return true;
+	} elseif ( is_multisite() ) {
+		switch_to_blog( SITE_ID_CURRENT_SITE );
+		return has_nav_menu( $location);
+		restore_current_blog();
+	}
+}
+
+/**
  * Override Twenty Fifteen custom header
  *
  */

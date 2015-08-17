@@ -23,6 +23,16 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
 
 	<div id="sidebar" class="sidebar">
+
+		<div class="network-header">
+			<p class="network-title">
+				<a href="<?php echo esc_url('http://syklistene.no'); ?>" rel="home">
+					<img class="network-logo" src="<?php echo slf_get_network_logo() ?>"></img>
+					<span>syklistene.no</span>
+				</a>
+			</p>
+		</div>
+
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 
@@ -54,3 +64,11 @@
 	</div><!-- .sidebar -->
 
 	<div id="content" class="site-content">
+		<div class="network-header">
+			<?php $args = array('theme_location' => 'network-menu', 'container' => '', 'menu_class' => 'network-menu'); ?>
+			<?php if( slf_has_network_wp_nav_menu( $args['theme_location']) ) : ?>
+				<?php slf_network_wp_nav_menu( $args ); ?>
+			<?php else : ?>
+				<?php echo "<p>&nbsp;</p>"; ?>
+			<?php endif; ?>
+		</div>

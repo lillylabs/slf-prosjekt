@@ -163,6 +163,55 @@ ol a:hover {
  * 10.0 Header
  */
 
+.network-header {
+	background: #D30013;
+	color: white;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 40px;
+	line-height: 4rem;
+	padding-top: 5px;
+	padding-top: 0.5rem;
+}
+
+#content .network-header {
+	opacity: 0.8;
+}
+
+.network-header .network-title,
+.network-header .network-menu {
+	padding: 0 7.6923%;
+}
+
+.network-header .network-title .network-logo {
+	height: 35px;
+	height: 3.5rem;
+}
+
+.network-header .network-menu {
+	text-align: right;
+}
+
+.network-header .network-menu li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.network-header a {
+	color: white;
+	opacity: 0.8;
+}
+
+.network-header a:hover {
+	color: white;
+	opacity: 1;
+}
+
+.network-header p,
+.network-header ul {
+	margin: 0;
+}
+
 .site-branding a:hover img {
 	opacity: 0.8;
 }
@@ -271,6 +320,20 @@ ol a:hover {
 		border-color: #D30013;
 	}
 
+}
+
+/**
+ * 16.4 Desktop Small 955px
+ */
+
+@media screen and (min-width: 59.6875em) {
+	.network-header .network-title {
+		padding: 0 20%
+	}
+
+	.network-header .network-menu {
+		padding: 0 8.3333%;
+	}
 }
 
 /**
