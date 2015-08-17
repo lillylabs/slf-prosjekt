@@ -304,10 +304,22 @@ ol a:hover {
 	width: 100%;
 }
 
-.entry-footer .edit-link {
-	margin-top: 1em;
+.hentry.has-post-thumbnail .entry-header {
+	display: none;
+}
+
+.hentry.has-post-thumbnail .post-thumbnail .entry-header {
 	display: block;
-	text-align: right;
+	position: absolute;
+	bottom: 0;
+	min-width: 100%;
+}
+
+.hentry.has-post-thumbnail .post-thumbnail .entry-header .entry-title {
+	background: white;
+	margin-left: -0.7em;
+	margin-right: -0.7em;
+	padding: 0.7em;
 }
 
 /**

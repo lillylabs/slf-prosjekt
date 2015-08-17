@@ -53,6 +53,41 @@ function slf_has_network_wp_nav_menu($location) {
 }
 
 /**
+ * Adding entry-header inside Twenty Fifteen post-thumbnail
+ *
+ */
+
+function twentyfifteen_post_thumbnail() {
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	if ( is_singular() ) :
+	?>
+
+	<div class="post-thumbnail">
+		<?php the_post_thumbnail(); ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header>
+	</div><!-- .post-thumbnail -->
+
+	<?php else : ?>
+
+	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<?php
+			the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
+		?>
+		<header class="entry-header">
+			<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+		</header>
+	</a>
+
+	<?php endif; // End is_singular()
+}
+
+
+/**
  * Override Twenty Fifteen custom header
  *
  */
