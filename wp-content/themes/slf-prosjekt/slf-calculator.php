@@ -15,7 +15,7 @@ $defaultsJSON = '
 		"carType": "gasCar",
 		"constants": {
 			"minutesExercisedPerKm": 4,
-			"caloriesBurnedPerKm": 27.2,
+			"caloriesBurnedPerKm": 43.33,
 			"savedNOKPerKm": 25.37,
 			"reducedCO2KgPerKm": {
 				"gasCar": 0.194,
