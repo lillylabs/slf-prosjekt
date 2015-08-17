@@ -43,13 +43,15 @@ function slf_network_wp_nav_menu($args = '') {
 }
 
 function slf_has_network_wp_nav_menu($location) {
-	if(has_nav_menu($location)) {
-		return true;
-	} elseif ( is_multisite() ) {
+	$has_nav_menu = has_nav_menu($location);
+
+	if ( !$has_nav_menu && is_multisite() ) {
 		switch_to_blog( SITE_ID_CURRENT_SITE );
-		return has_nav_menu( $location);
+		$has_nav_menu = has_nav_menu( $location);
 		restore_current_blog();
 	}
+
+	return $has_nav_menu;
 }
 
 /**
