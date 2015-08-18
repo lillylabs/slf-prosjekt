@@ -37,7 +37,7 @@
 			<div class="site-branding">
 
 				<!-- Added support for logo -->
-				<?php if( get_custom_header() ) : ?>
+				<?php if( has_header_image() ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img class="site-logo" src="<?php header_image(); ?>"></img>
 					</a>
