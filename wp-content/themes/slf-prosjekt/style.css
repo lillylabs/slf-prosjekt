@@ -163,6 +163,18 @@ ol a:hover {
  * 10.0 Header
  */
 
+.site-branding a:hover img {
+	opacity: 0.8;
+}
+
+.site-branding .site-title {
+	margin-top: 0.5em;
+}
+
+/**
+ * 10.1 Network header
+ */
+
 .network-header {
 	background: #D30013;
 	color: white;
@@ -170,31 +182,12 @@ ol a:hover {
 	font-size: 1.6rem;
 	line-height: 40px;
 	line-height: 4rem;
-	padding-top: 5px;
-	padding-top: 0.5rem;
-}
 
-#content .network-header {
-	opacity: 0.8;
-}
-
-.network-header .network-title,
-.network-header .network-menu {
 	padding: 0 7.6923%;
 }
 
-.network-header .network-title .network-logo {
-	height: 35px;
-	height: 3.5rem;
-}
-
-.network-header .network-menu {
-	text-align: right;
-}
-
-.network-header .network-menu li {
-	display: inline-block;
-	margin-right: 1em;
+.network-header .network-header-container {
+	padding-top: 0.5em;
 }
 
 .network-header a {
@@ -207,17 +200,91 @@ ol a:hover {
 	opacity: 1;
 }
 
-.network-header p,
-.network-header ul {
-	margin: 0;
+.network-header .network-branding {
+	float: left;
 }
 
-.site-branding a:hover img {
-	opacity: 0.8;
+.network-header .network-navigation {
+	text-align: right;
 }
 
-.site-branding .site-title {
-	margin-top: 0.5em;
+.network-header .network-logo {
+	height: 35px;
+	height: 3.5rem;
+}
+
+.network-header .network-menu {
+	margin-bottom: 0;
+	margin-right: -0.5em;
+}
+
+.network-header .network-menu li {
+	display: none;
+	margin: 0 0.5em;
+}
+
+.network-header .network-menu li:last-child {
+	display: inline-block;
+}
+
+/* Tablet Small 740px */
+
+@media screen and (min-width: 46.25em) {
+
+	.network-header .network-menu li  {
+		display: inline-block;
+	}
+}
+
+/* Desktop Small 955px */
+
+@media screen and (min-width: 59.6875em) {
+
+	#page {
+/*		padding-top: 4rem;*/
+	}
+
+	#sidebar,
+	#content {
+		padding-top: 4rem;
+	}
+
+	.network-header {
+		position: fixed;
+		width: 100%;
+		z-index: 200;
+		padding: 0;
+		left: 0;
+	}
+
+	.network-header .network-header-container {
+		margin: 0 auto;
+		max-width: 1403px;
+	}
+
+	.network-header .network-branding {
+		float: left;
+		margin-right: -100%;
+		max-width: 413px;
+		position: relative;
+		width: 29.4118%;
+	}
+
+	.network-header .network-navigation {
+		display: block;
+		float: left;
+		margin-left: 29.4118%;
+		width: 70.5882%;
+	}
+
+	.network-header .network-title {
+		padding: 0 20%
+	}
+
+	.network-header .network-menu {
+		margin-right: 0;
+		padding: 0 8.3333%;
+	}
 }
 
 /**
@@ -332,20 +399,6 @@ ol a:hover {
 		border-color: #D30013;
 	}
 
-}
-
-/**
- * 16.4 Desktop Small 955px
- */
-
-@media screen and (min-width: 59.6875em) {
-	.network-header .network-title {
-		padding: 0 20%
-	}
-
-	.network-header .network-menu {
-		padding: 0 8.3333%;
-	}
 }
 
 /**

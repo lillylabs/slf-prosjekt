@@ -19,21 +19,30 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<!-- Added support for network header -->
+<div class="network-header">
+	<div class="network-header-container">
+		<div class="network-branding">
+			<a class="network-title" href="<?php echo esc_url('http://syklistene.no'); ?>" rel="home">
+				<img class="network-logo" src="<?php echo slf_get_network_logo() ?>"></img>
+				<span>syklistene.no</span>
+			</a>
+		</div>
+
+		<div class="network-navigation">
+			<?php $args = array('theme_location' => 'network-menu', 'container' => '', 'menu_class' => 'network-menu'); ?>
+			<?php slf_network_wp_nav_menu( array('theme_location' => 'network-menu', 'container' => '', 'menu_class' => 'network-menu', 'fallback_cb' => '') ); ?>
+		</div>
+	</div>
+</div>
+<!-- End customization -->
+
+
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
 
 	<div id="sidebar" class="sidebar">
-
-		<!-- Added support for network header -->
-		<div class="network-header">
-			<p class="network-title">
-				<a href="<?php echo esc_url('http://syklistene.no'); ?>" rel="home">
-					<img class="network-logo" src="<?php echo slf_get_network_logo() ?>"></img>
-					<span>syklistene.no</span>
-				</a>
-			</p>
-		</div>
-		<!-- End customization -->
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
@@ -66,14 +75,3 @@
 	</div><!-- .sidebar -->
 
 	<div id="content" class="site-content">
-
-		<!-- Added support for network header -->
-		<div class="network-header">
-			<?php $args = array('theme_location' => 'network-menu', 'container' => '', 'menu_class' => 'network-menu'); ?>
-			<?php if( slf_has_network_wp_nav_menu( $args['theme_location']) ) : ?>
-				<?php slf_network_wp_nav_menu( $args ); ?>
-			<?php else : ?>
-				<?php echo "<p>&nbsp;</p>"; ?>
-			<?php endif; ?>
-		</div>
-		<!-- End customization -->
