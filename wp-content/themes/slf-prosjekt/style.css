@@ -7,10 +7,6 @@
  * Version:		0.0.0
  * Text Domain: slf-project
  */
- 
-#colophon {
-	display: none;
-}
 
 /**
  * 3.0 Typography
@@ -387,6 +383,18 @@ ol a:hover {
 	margin-left: -0.7em;
 	margin-right: -0.7em;
 	padding: 0.7em;
+}
+
+/**
+ * 13.0 Footer
+ */
+
+.site-info a {
+	display: none;
+}
+
+.site-info p {
+	margin: 0;
 }
 
 /**

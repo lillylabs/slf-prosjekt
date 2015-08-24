@@ -14,6 +14,11 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
+function slf_footer_text() {
+	echo '<p>© Syklistene 2015 | Østensjøveien 29, 0661 Oslo | 22 47 30 30</p>';
+}
+add_action('twentyfifteen_credits', 'slf_footer_text');
+
 /**
  * SLF network band with menu
  *
@@ -87,7 +92,6 @@ function twentyfifteen_post_thumbnail() {
 
 	<?php endif; // End is_singular()
 }
-
 
 /**
  * Override Twenty Fifteen custom header
