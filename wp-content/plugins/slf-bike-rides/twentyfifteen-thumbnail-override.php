@@ -8,7 +8,7 @@
 
 include_once('acf-helper.php');
 
-if ( ! function_exists( 'twentyfifteen_entry_meta' ) ) :
+if ( ! function_exists( 'twentyfifteen_post_thumbnail' ) ) :
 
 function twentyfifteen_post_thumbnail() {
 	if ( post_password_required() || is_attachment() ) {

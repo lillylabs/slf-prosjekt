@@ -1,3 +1,35 @@
+.byline {
+	display: none;
+}
+
+.cat-links:before {
+	content: "\f417"
+}
+
+.hentry.has-post-thumbnail .entry-header {
+	display: block !important;
+}
+
+.post-thumbnail .logo {
+	position: absolute;
+	left: 10%;
+	bottom: -1.3em;
+	max-width: 40%;
+}
+
+.logo a img {
+	background: white;
+	border: 2px solid white;
+	margin-left: -13px;
+	margin-top: -13px;
+	padding: 13px;
+	padding-right: 30px;
+}
+
+.logo a:hover img {
+	border-color: #D30013;
+}
+
 .entry-content {
 	padding-bottom: 5% !important;
 }

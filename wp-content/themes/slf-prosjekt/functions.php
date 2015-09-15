@@ -64,7 +64,7 @@ function slf_has_network_wp_nav_menu($location) {
  *
  */
 
-if ( ! function_exists( 'twentyfifteen_comment_nav' ) ) :
+if ( ! function_exists( 'twentyfifteen_post_thumbnail' ) ) :
 
 function twentyfifteen_post_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
