@@ -1,44 +1,6 @@
-<?php
-
-$defaultsJSON = '
-	{
-		"distanceToWork": 5,
-		"daysPerWeek": 2,
-		"weeksPerYear": 20,
-		"display": "year",
-		"carType": "gasCar",
-		"constants": {
-			"minutesExercisedPerKm": 4,
-			"caloriesBurnedPerKm": 43.33,
-			"savedNOKPerKm": 25.37,
-			"reducedCO2KgPerKm": {
-				"gasCar": 0.194,
-				"dieselCar": 0.155,
-				"noCar": 0
-			},
-			"reducedNOXGramPerKm": {
-				"gasCar": 0.07,
-				"dieselCar": 0.522,
-				"noCar": 0
-			},
-			"reducedDustGramPerKm": {
-				"gasCar": 0.0007,
-				"dieselCar": 0.0095,
-				"noCar": 0
-			}
-		}
-	}
-';
-
-$defaults = json_decode($defaultsJSON, true);
-$constants = $defaults["constants"];
-$kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defaults["weeksPerYear"];
-
-?>
-
 <div class="slf-calculator"
 	 ng-controller="SLFCalculatorController"
-	 ng-init='input = <?php echo $defaultsJSON; ?>'>
+	 ng-init='data = <?php $this->the_data_as_JSON() ?>'>
 
 	<div class="slf-calculator-form">
 		<div class="slf-calculator-question slf-calculator-question-distance">
@@ -48,8 +10,8 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<button ng-click="decrease('distanceToWork')">-</button>
 				<input type="text"
 					   pattern="[0-9]*"
-					   value="<?php echo $defaults["distanceToWork"] ?>"
-					   ng-model="input.distanceToWork" />
+					   value="<?php $this->the_default_input('distanceToWork') ?>"
+					   ng-model="data.input.distanceToWork" />
 				<button ng-click="increase('distanceToWork')">+</button>
 			</span>
 		</div>
@@ -60,8 +22,8 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<button ng-click="decrease('daysPerWeek')">-</button>
 				<input type="text"
 					   pattern="[0-9]*"
-					   value="<?php echo $defaults["daysPerWeek"] ?>"
-					   ng-model="input.daysPerWeek" />
+					   value="<?php $this->the_default_input('daysPerWeek') ?>"
+					   ng-model="data.input.daysPerWeek" />
 				<button ng-click="increase('daysPerWeek')">+</button>
 			</span>
 			<span>Antall uker per år:</span>
@@ -69,23 +31,35 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 				<button ng-click="decrease('weeksPerYear')">-</button>
 				<input type="text"
 					   pattern="[0-9]*"
-					   value="<?php echo $defaults["weeksPerYear"] ?>"
-					   ng-model="input.weeksPerYear" />
+					   value="<?php $this->the_default_input('weeksPerYear') ?>"
+					   ng-model="data.input.weeksPerYear" />
 				<button ng-click="increase('weeksPerYear')">+</button>
 			</span>
 		</div>
 		<div class="slf-calculator-question slf-calculator-question-car-type">
 			<h5>Hvilken bil har du?</h5>
 			<label>
-				<input type="radio" name="car" value="gasCar" checked="true" ng-model="input.carType" />
+				<input type="radio"
+					   name="car"
+					   value="gasCar"
+					   <?php echo $this->is_default_car_type('gasCar') ? 'checked="true"' : '' ?>
+					   ng-model="data.input.carType" />
 				<span>Bensin</span>
 			</label>
 			<label>
-				<input type="radio" name="car" value="dieselCar" ng-model="input.carType" />
+				<input type="radio"
+					   name="car"
+					   value="dieselCar"
+					   <?php echo $this->is_default_car_type('dieselCar') ? 'checked="true"' : '' ?>
+					   ng-model="data.input.carType" />
 				<span>Diesel</span>
 			</label>
 			<label>
-				<input type="radio" name="car" value="noCar" ng-model="input.carType" />
+				<input type="radio"
+					   name="car"
+					   value="noCar"
+					   <?php echo $this->is_default_car_type('noCar') ? 'checked="true"' : '' ?>
+					   ng-model="data.input.carType" />
 				<span>Ingen</span>
 			</label>
 		</div>
@@ -93,16 +67,19 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 
 	<div class="slf-calculator-result">
 
-		<h5 ng-show="input.display === 'year'">Iløpet av et år vil du:</h5>
-		<h5 ng-show="input.display === 'week'" class="ng-hide">Iløpet av en uke vil du:</h5>
-		<h5 ng-show="input.display === 'day'" class="ng-hide">På en dag vil du:</h5>
+		<h5 ng-show="data.input.display === 'year'" <?php echo !$this->is_default_display('year') ? 'class="ng-hide"' : '' ?>>
+			Iløpet av et år vil du:</h5>
+		<h5 ng-show="data.input.display === 'week'" <?php echo !$this->is_default_display('week') ? 'class="ng-hide"' : '' ?>>
+			Iløpet av en uke vil du:</h5>
+		<h5 ng-show="data.input.display === 'day'" <?php echo !$this->is_default_display('day') ? 'class="ng-hide"' : '' ?>>
+			På en dag vil du:</h5>
 
 		<ul>
 
 			<li class="slf-calculator-result-distance-coverd">
 				<span class="slf-calculator-key-word">Sykle</span>
 				<span class="slf-calculator-number" ng-bind="result.distanceCovered() | number : 0">
-					<?php echo number_format ( $kmInAYear, 0 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_km_per_year(), 0 , "," , " " ) ?>
 				</span>
 				<span>kilometer</span>.
 			</li>
@@ -110,7 +87,7 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 			<li class="slf-calculator-result-minutes-exercised">
 				<span class="slf-calculator-key-word">Mosjonere</span>
 				<span class="slf-calculator-number" ng-bind="result.minutesExercised() | number : 0">
-					<?php echo number_format ( $kmInAYear * $constants["minutesExercisedPerKm"], 0 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_calculation("minutesExercised"), 0 , "," , " " ) ?>
 				</span>
 				<span>minutter</span>.
 			</li>
@@ -118,7 +95,7 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 			<li class="slf-calculator-result-calories-burned">
 				<span>Forbrenne</span>
 				<span class="slf-calculator-number" ng-bind="result.caloriesBurned() | number : 0">
-					<?php echo number_format ( $kmInAYear * $constants["caloriesBurnedPerKm"], 0 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_calculation("caloriesBurned"), 0 , "," , " " ) ?>
 				</span>
 				<span class="slf-calculator-key-word">kalorier</span>.
 			</li>
@@ -130,21 +107,21 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 
 			<li class="slf-calculator-reduced-co2">
 				<span class="slf-calculator-number" ng-bind="result.reducedCO2Kg() | number : 2">
-					<?php echo number_format ( $kmInAYear * $constants["reducedCO2KgPerKm"]["gasCar"], 2 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_calculation("reducedCO2Kg"), 2 , "," , " " ) ?>
 				</span>
 				kg CO2.
 			</li>
 
 			<li class="slf-calculator-reduced-nox">
 				<span class="slf-calculator-number" ng-bind="result.reducedNOXGram() | number : 2">
-					<?php echo number_format ( $kmInAYear * $constants["reducedNOXGramPerKm"]["gasCar"], 2 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_calculation("reducedNOXGram"), 2 , "," , " " ) ?>
 				</span>
 				gram NOx.
 			</li>
 
 			<li class="slf-calculator-reduced-nox">
 				<span class="slf-calculator-number" ng-bind="result.reducedDustGram() | number : 2">
-					<?php echo number_format ( $kmInAYear * $constants["reducedDustGramPerKm"]["gasCar"], 2 , "," , " " ) ?>
+					<?php echo number_format ( $this->get_default_calculation("reducedDustGram"), 2 , "," , " " ) ?>
 				</span>
 				gram svevestøv.
 			</li>
@@ -152,7 +129,7 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 
 		<h5>I tillegg sparer samfunnet<br/>
 			<span class="slf-calculator-number" ng-bind="result.savedNOK() | number : 0">
-				<?php echo number_format ( $kmInAYear * $constants["savedNOKPerKm"], 0 , "," , " " ) ?>
+				<?php echo number_format ($this->get_default_calculation("savedNOK"), 0 , "," , " " ) ?>
 			</span>
 			kroner.
 		</h5>
@@ -161,15 +138,27 @@ $kmInAYear = $defaults["distanceToWork"] * 2 * $defaults["daysPerWeek"] * $defau
 			<span class="slf-calculator-result-tabs-label">Vis resultat for:</span>
 			<span class="slf-calculator-result-tabs-choices">
 				<label>
-					<input type="radio" name="display" value="year" checked="true" ng-model="input.display" />
+					<input type="radio"
+						   name="display"
+						   value="year"
+						   <?php echo $this->is_default_display('year') ? 'checked="true"' : '' ?>
+						   ng-model="data.input.display" />
 					<span>et år</span>
 				</label>
 				<label>
-					<input type="radio" name="display" value="week" ng-model="input.display" />
+					<input type="radio"
+						   name="display"
+						   value="week"
+						   <?php echo $this->is_default_display('week') ? 'checked="true"' : '' ?>
+						   ng-model="data.input.display" />
 					<span>en uke</span>
 				</label>
 				<label>
-					<input type="radio" name="display" value="day" ng-model="input.display" />
+					<input type="radio"
+						   name="display"
+						   value="day"
+						   <?php echo $this->is_default_display('day') ? 'checked="true"' : '' ?>
+						   ng-model="data.input.display" />
 					<span>en dag</span>
 				</label>
 			</span>

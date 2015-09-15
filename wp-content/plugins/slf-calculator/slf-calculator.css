@@ -21,6 +21,11 @@
 	margin-right: 0.5em;
 }
 
+/* In case script is not loaded */
+.slf-calculator .slf-calculator-result h5.ng-hide {
+	display: none;
+}
+
 /**
  * 15.1 Mobile Large 620px
  */
