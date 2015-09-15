@@ -37,6 +37,6 @@
 .entry-footer .acf-field-pdf a:hover,
 .entry-footer .acf-field-pdf a:focus {
 	background: #e70015;
-	border-bottom-color: transparent;
+	border-bottom: 2px solid transparent;
 	color: white;
 }
