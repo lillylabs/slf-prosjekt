@@ -174,37 +174,3 @@ function twentyfifteen_header_style() {
 	</style>
 	<?php
 }
-
-/**
- * SLF Calculator
- *
- */
-
-function slf_calculator_enqueue_scripts() {
-	wp_enqueue_script(
-		'angularjs',
-		get_stylesheet_directory_uri() . '/js/vendor/angular/angular.min.js'
-	);
-
-	wp_enqueue_script(
-		'angularjs-locale-nb',
-		get_stylesheet_directory_uri() . '/js/vendor/angular/angular-locale_nb.js',
-		array( 'angularjs' )
-	);
-
-	wp_enqueue_script(
-		'slf-calculator-js',
-		get_stylesheet_directory_uri() . '/js/slf-calculator.js',
-		array( 'angularjs', 'angularjs-locale-nb' )
-	);
-}
-add_action( 'wp_enqueue_scripts', 'slf_calculator_enqueue_scripts' );
-
-
-function slf_calculator_shortcode() {
-    ob_start();
-    get_template_part('slf-calculator');
-    return ob_get_clean();
-}
-add_shortcode('slf-calculator', 'slf_calculator_shortcode');
-
