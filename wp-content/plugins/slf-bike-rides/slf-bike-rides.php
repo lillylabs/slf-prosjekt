@@ -71,16 +71,9 @@ class SLF_Bike_Rides {
 
 	function add_map_after_content($content) {
 
-		$map_image_field = get_field_object("map");
-		$map_comment = get_field_object("map_comment");
-
-		if(is_single() && $map_image_field['value']) {
-			$content = $content . '<figure class="wp-caption alignnone">';
-			$content = $content . sprintf('<a href="%1$s">', $map_image_field['value']['sizes']['large']);
-			$content = $content . sprintf('<img src="%1$s" class="size-full" alt="%2$s" />', $map_image_field['value']['sizes']['large'], $map_comment['value']);
-			$content = $content . '</a>';
-			$content = $content . sprintf('<figcaption class="wp-caption-text">%1$s</figcaption>', $map_comment['value']);
-			$content = $content . '</figure>';
+		if( is_single() ) {
+			$acf_helper = new SLF_Bike_Rides_ACF_Helper();
+			$content = $content . $acf_helper->get_acf_map_figure();
 		}
 
 		return $content;
