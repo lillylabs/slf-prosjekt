@@ -9,6 +9,7 @@ Version: 1.0
 class SLF_Bike_Rides {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array($this, 'enque_styles') );
+		add_action( 'after_setup_theme', array( $this, 'remove_post_formats' ), 11 );
 		add_action( 'admin_menu', array( $this, 'change_post_label' ) );
 		add_action( 'init', array( $this, 'change_post_object' ) );
 		add_filter( 'get_the_archive_title', array( $this, 'add_logo_to_archive_title') );
@@ -25,6 +26,10 @@ class SLF_Bike_Rides {
 			'slf-calculator-style',
 			plugin_dir_url( __FILE__ ) . 'slf-bike-rides.css'
 		);
+	}
+
+	function remove_post_formats() {
+		remove_theme_support( 'post-formats' );
 	}
 
 	function change_post_label() {
