@@ -1,17 +1,12 @@
 /**
- * Theme Name:	SLF Prosjekt
- * Theme URI:	http://prosjekt.syklistene.no
- * Description: Prosjekt theme for Syklistenes Landsforening
+ * Theme Name:	SLF Project
+ * Description: Project theme for Syklistenes Landsforening
  * Author:		Benedicte Raae
  * Author URI:	https://lillylabs.no
  * Template: 	twentyfifteen
- * Version:		1.0.0
+ * Version:		0.0.0
  * Text Domain: slf-project
  */
- 
-#colophon {
-	display: none;
-}
 
 /**
  * 3.0 Typography
@@ -168,6 +163,126 @@ ol a:hover {
 	opacity: 0.8;
 }
 
+.site-branding .site-title {
+	margin-top: 0.5em;
+}
+
+/**
+ * 10.1 Network header
+ */
+
+.network-header {
+	background: #D30013;
+	color: white;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 40px;
+	line-height: 4rem;
+
+	padding: 0 7.6923%;
+}
+
+.network-header .network-header-container {
+	padding-top: 0.5em;
+}
+
+.network-header a {
+	color: white;
+	opacity: 0.8;
+}
+
+.network-header a:hover {
+	color: white;
+	opacity: 1;
+}
+
+.network-header .network-branding {
+	float: left;
+}
+
+.network-header .network-navigation {
+	text-align: right;
+}
+
+.network-header .network-logo {
+	height: 35px;
+	height: 3.5rem;
+}
+
+.network-header .network-menu {
+	margin-bottom: 0;
+	margin-right: -0.5em;
+}
+
+.network-header .network-menu li {
+	display: none;
+	margin: 0 0.5em;
+}
+
+.network-header .network-menu li:last-child {
+	display: inline-block;
+}
+
+/* Tablet Small 740px */
+
+@media screen and (min-width: 46.25em) {
+
+	.network-header .network-menu li  {
+		display: inline-block;
+	}
+}
+
+/* Desktop Small 955px */
+
+@media screen and (min-width: 59.6875em) {
+
+	#page {
+/*		padding-top: 4rem;*/
+	}
+
+	#sidebar,
+	#content {
+		padding-top: 4rem;
+	}
+
+	.network-header {
+		position: fixed;
+		width: 100%;
+		z-index: 200;
+		padding: 0;
+		left: 0;
+	}
+
+	.network-header .network-header-container {
+		margin: 0 auto;
+		max-width: 1403px;
+	}
+
+	.network-header .network-branding {
+		float: left;
+		margin-right: -100%;
+		max-width: 413px;
+		position: relative;
+		width: 29.4118%;
+	}
+
+	.network-header .network-navigation {
+		display: block;
+		float: left;
+		margin-left: 29.4118%;
+		width: 70.5882%;
+	}
+
+	.network-header .network-title {
+		padding: 0 20%
+	}
+
+	.network-header .network-menu {
+		margin-right: 0;
+		padding: 0 8.3333%;
+	}
+}
+
 /**
  * 11.0 - Widgets
  */
@@ -252,10 +367,34 @@ ol a:hover {
 	width: 100%;
 }
 
-.entry-footer .edit-link {
-	margin-top: 1em;
+.hentry.has-post-thumbnail .entry-header {
+	display: none;
+}
+
+.hentry.has-post-thumbnail .post-thumbnail .entry-header {
 	display: block;
-	text-align: right;
+	position: absolute;
+	bottom: 0;
+	min-width: 100%;
+}
+
+.hentry.has-post-thumbnail .post-thumbnail .entry-header .entry-title {
+	background: white;
+	margin-left: -0.7em;
+	margin-right: -0.7em;
+	padding: 0.7em;
+}
+
+/**
+ * 13.0 Footer
+ */
+
+.site-info a {
+	display: none;
+}
+
+.site-info p {
+	margin: 0;
 }
 
 /**
@@ -268,117 +407,4 @@ ol a:hover {
 		border-color: #D30013;
 	}
 
-}
-
-/**
- * SLF Calculator
- *
- */
-
-.slf-calculator {
-	display: table;
-	width: 100%;
-}
-
-.slf-calculator .slf-calculator-result {
-	margin-top: 2em;
-}
-
-.slf-calculator .slf-calculator-result-tabs span {
-	display: block;
-}
-
-.slf-calculator .slf-calculator-result-tabs label {
-	display: inline-block;
-	margin-right: 0.5em;
-}
-
-/**
- * 15.1 Mobile Large 620px
- */
-
-@media screen and (min-width: 38.75em) {
-
-	.slf-calculator .slf-calculator-form {
-		width: 50%;
-		float: left;
-		padding-right: 4%;
-	}
-
-	.slf-calculator .slf-calculator-result {
-		float: left;
-		width: 50%;
-		padding-right: 4%;
-		margin-top: 0;
-	}
-}
-	
-/* Typography */
-
-.slf-calculator {
-	margin-top: -1em;
-}
-
-.slf-calculator h5 {
-	text-transform: none;
-	margin: 1em 0;
-}
-
-.slf-calculator input[type="radio"] {
-	display: none;
-}
-
-.slf-calculator input[type="radio"] + span::before {
-	content: '';
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	border: 0.125em solid #87000c;
-	margin-right: 0.5em;
-	vertical-align: -0.2em;
-}
-
-.slf-calculator [type="radio"]:checked + span::before {
-	background: #D30013;
-}
-
-.slf-calculator .slf-calculator-form h5 {
-	margin-bottom: 0.5em;
-}
-
-.slf-calculator .slf-calculator-form .slf-calculator-question,
-.slf-calculator .slf-calculator-form .slf-calculator-question span {
-	display: table;
-}
-
-.slf-calculator .slf-calculator-form .spinner {
-	margin-top: 0.2em;
-	margin-bottom: 0.5em;
-}
-
-.slf-calculator .slf-calculator-form .spinner button {
-	width: 35px;
-	height: 35px;
-	display: block;
-	float: left;
-	padding: 0;
-}
-
-/* Using text because type=number */
-/* gives unwanted styling in many browsers. */
-.slf-calculator .slf-calculator-form .spinner input[type="text"] {
-	width: 45px;
-	height: 35px;
-	text-align: center;
-	display: block;
-	float: left;
-}
-
-.slf-calculator .slf-calculator-form .slf-calculator-question span:first-child {
-	font-weight: bold;
-	margin-bottom: 0.5em;
-}
-
-.slf-calculator .slf-calculator-result .slf-calculator-key-word {
-	/* font-weight: bold; */
 }

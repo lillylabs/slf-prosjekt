@@ -1,0 +1,30 @@
+{
+	"input": {
+		"distanceToWork": 5,
+		"daysPerWeek": 2,
+		"weeksPerYear": 20,
+		"display": "year",
+		"carType": "gasCar"
+	},
+	"constants": {
+		"minutesExercisedPerKm": 4,
+		"caloriesBurnedPerKm": 43.33,
+		"savedNOKPerKm": 25.37,
+		"reducedCO2KgPerKm": {
+			"gasCar": 0.194,
+			"dieselCar": 0.155,
+			"noCar": 0
+		},
+		"reducedNOXGramPerKm": {
+			"gasCar": 0.07,
+			"dieselCar": 0.522,
+			"noCar": 0
+		},
+		"reducedDustGramPerKm": {
+			"gasCar": 0.0007,
+			"dieselCar": 0.0095,
+			"noCar": 0
+		}
+	}
+}
+

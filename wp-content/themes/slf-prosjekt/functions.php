@@ -1,8 +1,9 @@
 <?php
 /**
- * @package SLF Project
  *
- * Add your custom functions here.
+ * @package WordPress
+ * @subpackage SLF_Project
+ *
  */
 
 function theme_enqueue_styles() {
@@ -12,6 +13,85 @@ function theme_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
+function slf_footer_text() {
+	echo '<p>© Syklistene 2015 | Østensjøveien 29, 0661 Oslo | 22 47 30 30</p>';
+}
+add_action('twentyfifteen_credits', 'slf_footer_text');
+
+/**
+ * SLF network band with menu
+ *
+ */
+
+function slf_get_network_logo() {
+	return get_bloginfo('stylesheet_directory')."/gfx/chain.png";
+}
+
+function register_slf_menus() {
+	register_nav_menu( 'network-menu', __( 'Network Menu' ) );
+}
+add_action( 'init', 'register_slf_menus' );
+
+function slf_network_wp_nav_menu($args = '') {
+
+	if(has_nav_menu( $args['theme_location'] )) {
+		wp_nav_menu( $args );
+	} elseif ( is_multisite() ) {
+		switch_to_blog( SITE_ID_CURRENT_SITE );
+		wp_nav_menu( $args );
+		restore_current_blog();
+	} else {
+		// To trigger fallback_cb
+		wp_nav_menu( $args );
+	}
+}
+
+function slf_has_network_wp_nav_menu($location) {
+	$has_nav_menu = has_nav_menu($location);
+
+	if ( !$has_nav_menu && is_multisite() ) {
+		switch_to_blog( SITE_ID_CURRENT_SITE );
+		$has_nav_menu = has_nav_menu( $location);
+		restore_current_blog();
+	}
+
+	return $has_nav_menu;
+}
+
+/**
+ * Adding entry-header inside Twenty Fifteen post-thumbnail
+ *
+ */
+
+function twentyfifteen_post_thumbnail() {
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	if ( is_singular() ) :
+	?>
+
+	<div class="post-thumbnail">
+		<?php the_post_thumbnail(); ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header>
+	</div><!-- .post-thumbnail -->
+
+	<?php else : ?>
+
+	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<?php
+			the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
+		?>
+		<header class="entry-header">
+			<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+		</header>
+	</a>
+
+	<?php endif; // End is_singular()
+}
 
 /**
  * Override Twenty Fifteen custom header
@@ -94,37 +174,3 @@ function twentyfifteen_header_style() {
 	</style>
 	<?php
 }
-
-/**
- * SLF Calculator
- *
- */
-
-function slf_calculator_enqueue_scripts() {
-	wp_enqueue_script(
-		'angularjs',
-		get_stylesheet_directory_uri() . '/js/vendor/angular/angular.min.js'
-	);
-
-	wp_enqueue_script(
-		'angularjs-locale-nb',
-		get_stylesheet_directory_uri() . '/js/vendor/angular/angular-locale_nb.js',
-		array( 'angularjs' )
-	);
-
-	wp_enqueue_script(
-		'slf-calculator-js',
-		get_stylesheet_directory_uri() . '/js/slf-calculator.js',
-		array( 'angularjs', 'angularjs-locale-nb' )
-	);
-}
-add_action( 'wp_enqueue_scripts', 'slf_calculator_enqueue_scripts' );
-
-
-function slf_calculator_shortcode() {
-    ob_start();
-    get_template_part('slf-calculator');
-    return ob_get_clean();
-}
-add_shortcode('slf-calculator', 'slf_calculator_shortcode');
-

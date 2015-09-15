@@ -1,0 +1,117 @@
+/**
+ * SLF Calculator
+ *
+ */
+
+.slf-calculator {
+	display: table;
+	width: 100%;
+}
+
+.slf-calculator .slf-calculator-result {
+	margin-top: 2em;
+}
+
+.slf-calculator .slf-calculator-result-tabs span {
+	display: block;
+}
+
+.slf-calculator .slf-calculator-result-tabs label {
+	display: inline-block;
+	margin-right: 0.5em;
+}
+
+/* In case script is not loaded */
+.slf-calculator .slf-calculator-result h5.ng-hide {
+	display: none;
+}
+
+/**
+ * 15.1 Mobile Large 620px
+ */
+
+@media screen and (min-width: 38.75em) {
+
+	.slf-calculator .slf-calculator-form {
+		width: 50%;
+		float: left;
+		padding-right: 4%;
+	}
+
+	.slf-calculator .slf-calculator-result {
+		float: left;
+		width: 50%;
+		padding-right: 4%;
+		margin-top: 0;
+	}
+}
+
+/* Typography */
+
+.slf-calculator {
+	margin-top: -1em;
+}
+
+.slf-calculator h5 {
+	text-transform: none;
+	margin: 1em 0;
+}
+
+.slf-calculator input[type="radio"] {
+	display: none;
+}
+
+.slf-calculator input[type="radio"] + span::before {
+	content: '';
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	border: 0.125em solid #87000c;
+	margin-right: 0.5em;
+	vertical-align: -0.2em;
+}
+
+.slf-calculator [type="radio"]:checked + span::before {
+	background: #D30013;
+}
+
+.slf-calculator .slf-calculator-form h5 {
+	margin-bottom: 0.5em;
+}
+
+.slf-calculator .slf-calculator-form .slf-calculator-question,
+.slf-calculator .slf-calculator-form .slf-calculator-question span {
+	display: table;
+}
+
+.slf-calculator .slf-calculator-form .spinner {
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+}
+
+.slf-calculator .slf-calculator-form .spinner button {
+	width: 35px;
+	height: 35px;
+	display: block;
+	float: left;
+	padding: 0;
+}
+
+/* Using text because type=number */
+/* gives unwanted styling in many browsers. */
+.slf-calculator .slf-calculator-form .spinner input[type="text"] {
+	width: 45px;
+	height: 35px;
+	text-align: center;
+	display: block;
+	float: left;
+}
+
+.slf-calculator .slf-calculator-form .slf-calculator-question span:first-child {
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+.slf-calculator .slf-calculator-result .slf-calculator-key-word {
+	/* font-weight: bold; */
+}
