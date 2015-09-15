@@ -1,0 +1,42 @@
+.entry-content {
+	padding-bottom: 5% !important;
+}
+
+.entry-footer .acf-field {
+	color: #333;
+}
+
+.entry-footer .acf-field .label {
+	color: #707070;
+}
+
+.entry-footer .acf-field p:last-child {
+	margin-bottom: 0.5em;
+}
+
+.entry-footer .acf-field p:last-child {
+	margin-bottom: 0;
+}
+
+.entry-footer .acf-field-pdf a {
+	display: inline-block;
+	padding: 2% 3%;
+	background: #D30013;
+	border-bottom: 2px solid #87000c;
+	color: white;
+	margin-top: 2em;
+}
+
+.entry-footer .acf-field-pdf a:after {
+	font-family: "Genericons";
+	content: "\00a0\f50b";
+	vertical-align: sub;
+	font-size: 120%;
+}
+
+.entry-footer .acf-field-pdf a:hover,
+.entry-footer .acf-field-pdf a:focus {
+	background: #e70015;
+	border-bottom-color: transparent;
+	color: white;
+}

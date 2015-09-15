@@ -385,6 +385,17 @@ ol a:hover {
 	padding: 0.7em;
 }
 
+.entry-content > :last-child figcaption, 
+.entry-summary > :last-child figcaption {
+	padding-bottom: 0;
+}
+
+.entry-footer .edit-link {
+	margin-top: 1em;
+	display: block;
+	text-align: right;
+}
+
 /**
  * 13.0 Footer
  */
