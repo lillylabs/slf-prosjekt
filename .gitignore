@@ -92,4 +92,5 @@ Thumbs.db
 # add your own entries here
 !wp-content/mu-plugins/example-mu-plugin/
 !wp-content/plugins/slf-calculator/
+!wp-content/plugins/slf-bike-rides/
 !wp-content/themes/slf-prosjekt/

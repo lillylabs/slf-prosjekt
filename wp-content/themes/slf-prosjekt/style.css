@@ -123,11 +123,26 @@ ul, ol {
  
 .entry-content a, 
 .entry-summary a,
+.entry-footer a,
 .page-content a, 
 .comment-content a, 
-.pingback .comment-body > a {
+.pingback .comment-body > a,
+.widget_categories a {
 	color: #D30013;
 	border-color: #D30013;
+}
+
+.entry-footer a {
+	border: none;
+}
+
+.entry-footer a:hover {
+	color: #707070;
+	border: none;
+}
+
+.widget_categories a:hover {
+	color: #707070;
 }
 
 .entry-content h1 a,
@@ -383,6 +398,17 @@ ol a:hover {
 	margin-left: -0.7em;
 	margin-right: -0.7em;
 	padding: 0.7em;
+}
+
+.entry-content > :last-child figcaption, 
+.entry-summary > :last-child figcaption {
+	padding-bottom: 0;
+}
+
+.entry-footer .edit-link {
+	margin-top: 1em;
+	display: block;
+	text-align: right;
 }
 
 /**
