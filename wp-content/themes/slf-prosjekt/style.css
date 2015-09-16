@@ -1,5 +1,5 @@
 /**
- * Theme Name:	SLF Project
+ * Theme Name:	SLF Prosjekt
  * Description: Project theme for Syklistenes Landsforening
  * Author:		Benedicte Raae
  * Author URI:	https://lillylabs.no
@@ -390,14 +390,13 @@ ol a:hover {
 	display: block;
 	position: absolute;
 	bottom: 0;
-	min-width: 100%;
 }
 
 .hentry.has-post-thumbnail .post-thumbnail .entry-header .entry-title {
 	background: white;
-	margin-left: -0.7em;
-	margin-right: -0.7em;
+	margin: 0 -0.7em;
 	padding: 0.7em;
+	padding-bottom: 0;
 }
 
 .entry-content > :last-child figcaption, 
