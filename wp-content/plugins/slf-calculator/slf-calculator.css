@@ -3,58 +3,62 @@
  *
  */
 
-.slf-calculator {
+
+.slf-calculator-questions {
+
+	text-align: center;
+}
+
+.entry-content .slf-calculator-questions h2 {
+	margin: 1em 0 2em 0;
+}
+
+
+.slf-calculator-form { 
 	display: table;
-	width: 100%;
+	margin: 0 auto 0 auto;
+	padding: 4em 0em;
+	text-align: center;
 }
 
-.slf-calculator .slf-calculator-result {
-	margin-top: 2em;
+.slf-sliders {
+	display: table;
 }
 
-.slf-calculator .slf-calculator-result-tabs span {
+ .slf-calculator .slf-sliders .slf-calculator-question {
+	float: left;
+	width: 33%;
+	padding: 0em 1em;
+	border-left: 1px solid #e2e2e2;
+}
+ .slf-calculator .slf-sliders .slf-calculator-question:first-child {
+ 	border-left: 0;
+ }
+
+.slf-calculator .slf-sliders .slf-calculator-question button,
+.slf-calculator .slf-sliders .slf-calculator-question input {
+	display: table;
+	width: 50px;
+	text-align: center;
+	margin: 0 auto; padding: .6em .2em;
+	font-size: 1.1em;
+}
+
+.slf-calculator .slf-sliders .slf-calculator-question button {
+	border: 0;
+}
+
+.slf-calculator .slf-sliders .slf-calculator-question input {
+	background: white; border: 0;
+}
+
+.slf-sliders-label {
 	display: block;
+	margin-top: 10px;
 }
 
-.slf-calculator .slf-calculator-result-tabs label {
-	display: inline-block;
-	margin-right: 0.5em;
-}
-
-/* In case script is not loaded */
-.slf-calculator .slf-calculator-result h5.ng-hide {
-	display: none;
-}
-
-/**
- * 15.1 Mobile Large 620px
- */
-
-@media screen and (min-width: 38.75em) {
-
-	.slf-calculator .slf-calculator-form {
-		width: 50%;
-		float: left;
-		padding-right: 4%;
-	}
-
-	.slf-calculator .slf-calculator-result {
-		float: left;
-		width: 50%;
-		padding-right: 4%;
-		margin-top: 0;
-	}
-}
-
-/* Typography */
-
-.slf-calculator {
-	margin-top: -1em;
-}
-
-.slf-calculator h5 {
-	text-transform: none;
-	margin: 1em 0;
+.slf-calculator label {
+	margin-right: 1.5em;
 }
 
 .slf-calculator input[type="radio"] {
@@ -64,54 +68,61 @@
 .slf-calculator input[type="radio"] + span::before {
 	content: '';
 	display: inline-block;
-	width: 1em;
-	height: 1em;
+	width: 2em;
+	height: 2em;
 	border: 0.125em solid #87000c;
 	margin-right: 0.5em;
-	vertical-align: -0.2em;
+	vertical-align: -0.6em;
 }
 
 .slf-calculator [type="radio"]:checked + span::before {
 	background: #D30013;
 }
 
-.slf-calculator .slf-calculator-form h5 {
-	margin-bottom: 0.5em;
-}
 
-.slf-calculator .slf-calculator-form .slf-calculator-question,
-.slf-calculator .slf-calculator-form .slf-calculator-question span {
-	display: table;
-}
 
-.slf-calculator .slf-calculator-form .spinner {
-	margin-top: 0.2em;
-	margin-bottom: 0.5em;
-}
 
-.slf-calculator .slf-calculator-form .spinner button {
-	width: 35px;
-	height: 35px;
-	display: block;
-	float: left;
-	padding: 0;
-}
-
-/* Using text because type=number */
-/* gives unwanted styling in many browsers. */
-.slf-calculator .slf-calculator-form .spinner input[type="text"] {
-	width: 45px;
-	height: 35px;
+.slf-calculator-result {
 	text-align: center;
-	display: block;
+
+	background: #F1F1F1;
+	border-radius: 10px;
+	padding: .5em 0 2.5em 0;
+
+
+}
+
+.entry-content .slf-calculator-result h2 {
+	margin-bottom: 1.7em;
+}
+
+.slf-calculator-result-health-result,
+.slf-calculator-result-earth-result {
 	float: left;
+	width: 33%;
+	padding: 0em 1em;
+	margin-bottom: 3em;
 }
 
-.slf-calculator .slf-calculator-form .slf-calculator-question span:first-child {
+.slf-calculator-result-health-result span,
+.slf-calculator-result-earth-result span {
+	display: block;
+}
+
+.slf-calculator-number{
+	font-size: 1.8em;
 	font-weight: bold;
-	margin-bottom: 0.5em;
+	color: #D30013;
 }
 
-.slf-calculator .slf-calculator-result .slf-calculator-key-word {
-	/* font-weight: bold; */
+.entry-content .slf-calculator-result-costs h5 {
+	margin: 0;
+}
+
+.slf-calculator-key-word {
+	font-size: .7em;
+}
+
+.slf-calculator-title-word {
+	font-size: 1em;
 }
