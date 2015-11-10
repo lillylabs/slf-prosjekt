@@ -14,10 +14,32 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
-function slf_footer_text() {
-	echo '<p>© Syklistene 2015 | Østensjøveien 29, 0661 Oslo | 22 47 30 30</p>';
+/**
+ * Footer widgets
+ *
+ */
+
+function slf_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Footer Widgets Area', 'slf-project' ),
+		'id'            => 'sidebar-2',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'slf-project' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
-add_action('twentyfifteen_credits', 'slf_footer_text');
+add_action( 'widgets_init', 'slf_widgets_init' );
+
+function slf_footer_widgit() {
+	if ( is_active_sidebar( 'sidebar-2' ) ) {
+		echo '<div class="footer-widget-area">';
+		dynamic_sidebar( 'sidebar-2' );
+		echo '</div>';
+	}
+}
+add_action('twentyfifteen_credits', 'slf_footer_widgit');
 
 /**
  * SLF network band with menu
