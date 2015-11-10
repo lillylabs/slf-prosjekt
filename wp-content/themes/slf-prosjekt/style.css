@@ -298,12 +298,31 @@ ol a:hover {
  * 13.0 Footer
  */
 
-.site-info a {
+.site-footer .widget {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 1.6em;
+	width: 100%;
+}
+
+.site-footer .widget:last-child {
+	margin-bottom: 0;
+}
+
+.site-info>a {
 	display: none;
 }
 
-.site-info p {
-	margin: 0;
+.site-footer .logos .textwidget {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	margin: 0 -0.7em;
+}
+
+.site-footer .logos img {
+	padding: 0 0.7em;
 }
 
 /**
