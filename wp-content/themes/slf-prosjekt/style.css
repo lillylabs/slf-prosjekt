@@ -437,6 +437,10 @@ ol a:hover {
 	margin: 0 -0.7em;
 }
 
+.site-footer .logos .textwidget a {
+	min-width: 0;
+}
+
 .site-footer .logos img {
 	padding: 0 0.7em;
 }
